@@ -1,0 +1,10 @@
+﻿namespace Prog201_CardGame
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}
