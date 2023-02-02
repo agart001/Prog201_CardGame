@@ -70,18 +70,6 @@ namespace Prog201_CardGame
             return Decks;
         }
 
-        public void SwitchCard (List<Card> _Deck, int a, int b)
-        {
-            Card CardA = _Deck[a];
-            Card CardB = _Deck[b];
-
-            _Deck.Remove(CardB);
-            _Deck.Insert(b, CardA);
-
-            _Deck.Remove(CardA);
-            _Deck.Insert(a, CardB);
-        }
-
         public void DrawCard(List<List<Card>> _Decks, List<Card> Hand)
         {
             foreach(List<Card> _deck in _Decks) 

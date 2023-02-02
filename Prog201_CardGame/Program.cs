@@ -12,8 +12,11 @@ namespace Prog201_CardGame
 
             Player player = new Player();
 
+            dealer.Shuffle();
+
             dealer.Deal(player.Hand);
 
+            player.ShowHand();
 
         }
         

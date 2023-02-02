@@ -65,13 +65,12 @@ namespace Prog201_CardGame
 
         public void Deal(List<Card> PlayerHand)
         {
+            Hand.Clear();
+            PlayerHand.Clear();
+
             for(int i = 0; i < HandSize; i++)
             {
                 gen.DrawCard(Decks, Hand);
-            }
-
-            for (int i = 0; i < HandSize; i++)
-            {
                 gen.DrawCard(Decks, PlayerHand);
             }
         }

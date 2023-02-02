@@ -12,5 +12,7 @@ namespace Prog201_CardGame
         public static Random Rand = new Random();
 
         public static void Print(string text) => WriteLine(text);
+
+        public static void SpaceLine() => WriteLine("-------------------------");
     }
 }
