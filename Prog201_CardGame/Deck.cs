@@ -9,7 +9,7 @@ namespace Prog201_CardGame
 {
     internal class Deck
     {
-
+        public string[] Suites = { "Clubs", "Diamonds", "Hearts", "Spades" };
         public void AddCard( List<Card> _Deck ,string _Suite, int _Number, string _Face, string _Image)
         {
             Card Card = new Card
@@ -25,6 +25,35 @@ namespace Prog201_CardGame
         public List<Card> CreateDeck() 
         {
             List<Card> Deck = new List<Card>();
+
+            foreach(string suite in Suites)
+            {
+                for (int i = 1; i <= 13; i++)
+                {
+                    if (i != 1 && i != 11 && i != 12 && i != 13)
+                    {
+                        AddCard(Deck, suite, i, "none", $"{i} of {suite}");
+                    }
+                    else if (i == 1)
+                    {
+                        AddCard(Deck, suite, i, "Ace", $"Ace of {suite}");
+                    }
+                    else if (i == 11)
+                    {
+                        AddCard(Deck, suite, i, "Jack", $"Jack of {suite}");
+                    }
+                    else if (i == 12)
+                    {
+                        AddCard(Deck, suite, i, "Queen", $"Queen of {suite}");
+                    }
+                    else if (i == 13)
+                    {
+                        AddCard(Deck, suite, i, "King", $"King of {suite}");
+                    }
+                }
+            }
+
+            /*
             #region Clubs
             for(int i = 1; i <= 13; i++)
             {
@@ -128,6 +157,7 @@ namespace Prog201_CardGame
                 }
             }
             #endregion
+            */
 
             return Deck;
         }
