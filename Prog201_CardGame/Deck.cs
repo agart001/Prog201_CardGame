@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Prog201_CardGame.Utility;
 
 namespace Prog201_CardGame
 {
@@ -53,112 +54,6 @@ namespace Prog201_CardGame
                 }
             }
 
-            /*
-            #region Clubs
-            for(int i = 1; i <= 13; i++)
-            {
-                if(i != 1 && i != 11 && i != 12 && i != 13)
-                {
-                    AddCard(Deck, "Clubs", i, "none", $"C-{i}" );
-                }
-                else if(i == 1)
-                {
-                    AddCard(Deck, "Clubs", i, "Ace", "C-A");
-                }
-                else if (i == 11)
-                {
-                    AddCard(Deck, "Clubs", i, "Jack", "C-J");
-                }
-                else if (i == 12)
-                {
-                    AddCard(Deck, "Clubs", i, "Queen", "C-Q");
-                }
-                else if (i == 13)
-                {
-                    AddCard(Deck, "Clubs", i, "King", "C-K");
-                }
-            }
-            #endregion
-
-            #region Diamonds
-            for (int i = 1; i <= 13; i++)
-            {
-                if (i != 1 && i != 11 && i != 12 && i != 13)
-                {
-                    AddCard(Deck, "Diamonds", i, "none", $"D-{i}");
-                }
-                else if (i == 1)
-                {
-                    AddCard(Deck, "Diamonds", i, "Ace", "D-A");
-                }
-                else if (i == 11)
-                {
-                    AddCard(Deck, "Diamonds", i, "Jack", "D-J");
-                }
-                else if (i == 12)
-                {
-                    AddCard(Deck, "Diamonds", i, "Queen", "D-Q");
-                }
-                else if (i == 13)
-                {
-                    AddCard(Deck, "Diamonds", i, "King", "D-K");
-                }
-            }
-            #endregion
-
-            #region Hearts
-            for (int i = 1; i <= 13; i++)
-            {
-                if (i != 1 && i != 11 && i != 12 && i != 13)
-                {
-                    AddCard(Deck, "Hearts", i, "none", $"H-{i}");
-                }
-                else if (i == 1)
-                {
-                    AddCard(Deck, "Hearts", i, "Ace", "H-A");
-                }
-                else if (i == 11)
-                {
-                    AddCard(Deck, "Hearts", i, "Jack", "H-J");
-                }
-                else if (i == 12)
-                {
-                    AddCard(Deck, "Hearts", i, "Queen", "H-Q");
-                }
-                else if (i == 13)
-                {
-                    AddCard(Deck, "Hearts", i, "King", "H-K");
-                }
-            }
-            #endregion
-
-            #region Spades
-            for (int i = 1; i <= 13; i++)
-            {
-                if (i != 1 && i != 11 && i != 12 && i != 13)
-                {
-                    AddCard(Deck, "Spades", i, "none", $"S-{i}");
-                }
-                else if (i == 1)
-                {
-                    AddCard(Deck, "Spades", i, "Ace", "S-A");
-                }
-                else if (i == 11)
-                {
-                    AddCard(Deck, "Spades", i, "Jack", "S-J");
-                }
-                else if (i == 12)
-                {
-                    AddCard(Deck, "Spades", i, "Queen", "S-Q");
-                }
-                else if (i == 13)
-                {
-                    AddCard(Deck, "Spades", i, "King", "S-K");
-                }
-            }
-            #endregion
-            */
-
             return Deck;
         }
 
@@ -173,6 +68,31 @@ namespace Prog201_CardGame
                 Decks.Add(_deck);
             }
             return Decks;
+        }
+
+        public void SwitchCard (List<Card> _Deck, int a, int b)
+        {
+            Card CardA = _Deck[a];
+            Card CardB = _Deck[b];
+
+            _Deck.Remove(CardB);
+            _Deck.Insert(b, CardA);
+
+            _Deck.Remove(CardA);
+            _Deck.Insert(a, CardB);
+        }
+
+        public void DrawCard(List<List<Card>> _Decks, List<Card> Hand)
+        {
+            foreach(List<Card> _deck in _Decks) 
+            { 
+                if(_deck.Count > 0) 
+                { 
+                    Card _card = _deck.First();
+                    Hand.Add(_card);
+                    _deck.Remove(_card);
+                }
+            }
         }
     }
 }

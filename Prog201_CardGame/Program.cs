@@ -6,17 +6,15 @@ namespace Prog201_CardGame
     {
         static void Main(string[] args)
         {
-            Deck _deck = new Deck();
-            List<Card> deck = _deck.CreateDeck();
+            Game game = new Game("Game", "fun game", 1, 100000, 3);
 
-            foreach (Card card in deck)
-            {
-                if (card.Face == "Ace")
-                {
-                    Console.WriteLine("--------");
-                }
-                Console.WriteLine(card.Image);
-            }
+            Dealer dealer = new Dealer(game);
+
+            Player player = new Player();
+
+            dealer.Deal(player.Hand);
+
+
         }
         
     }
