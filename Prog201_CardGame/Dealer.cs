@@ -9,10 +9,7 @@ namespace Prog201_CardGame
 {
     internal class Dealer
     {
-        Deck gen;
-        public List<List<Card>> Decks = new List<List<Card>>();
-
-        public int NumDecks { get; set; }
+        List<List<Card>> Decks = new List<List<Card>>();
 
         public List<Card> Hand = new List<Card>();
 
@@ -20,15 +17,11 @@ namespace Prog201_CardGame
 
         public double Money { get; set; }
 
-        public Dealer( Game _game) 
+        public Dealer(List<List<Card>> _Decks, int _HandSize, double _Money) 
         {
-            HandSize = _game.HandSize;
-
-            gen = _game.Deck;
-
-            NumDecks = _game.NumDecks;
-
-            Decks = gen.CreateDecks(NumDecks);
+            Decks = _Decks;
+            HandSize = _HandSize;
+            Money = _Money;
         }
 
         public void PrintDeck()
@@ -45,33 +38,41 @@ namespace Prog201_CardGame
 
         public void Shuffle()
         {
-            foreach(List<Card> _deck in Decks) 
+            foreach (List<Card> _Deck in Decks)
             {
-                foreach( Card card in _deck.ToList())
+                int n = _Deck.Count;
+                while (n > 1)
                 {
-                    int n = _deck.Count;
-                    while (n > 1)
-                    {
-                        n--;
-                        int k = Rand.Next(n + 1);
-                        Card _card = _deck[k];
-                        _deck[k] = _deck[n];
-                        _deck[n] = _card;
-                    }
-
+                    n--;
+                    int k = Rand.Next(n + 1);
+                    Card _Card = _Deck[k];
+                    _Deck[k] = _Deck[n];
+                    _Deck[n] = _Card;
                 }
             }
         }
 
-        public void Deal(List<Card> PlayerHand)
+        public Card DrawCard()
         {
-            Hand.Clear();
-            PlayerHand.Clear();
-
-            for(int i = 0; i < HandSize; i++)
+            List<Card> _Deck = Decks.Last();
+            if (_Deck.Count > 0)
             {
-                gen.DrawCard(Decks, Hand);
-                gen.DrawCard(Decks, PlayerHand);
+                Card _Card = _Deck.Last();
+                _Deck.Remove(_Card);
+                return _Card;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public void Deal(List<Card> _Hand, int _Amount)
+        {
+            for(int i = 0; i < _Amount; i++)
+            {
+                Card _Card = DrawCard();
+                if (_Card != null) { _Hand.Add(_Card); }
             }
         }
 

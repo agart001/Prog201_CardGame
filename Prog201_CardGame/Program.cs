@@ -1,4 +1,4 @@
-﻿
+﻿using static Prog201_CardGame.Utility;
 
 namespace Prog201_CardGame
 {
@@ -6,18 +6,8 @@ namespace Prog201_CardGame
     {
         static void Main(string[] args)
         {
-            Game game = new Game("Game", "fun game", 1, 100000, 3);
-
-            Dealer dealer = new Dealer(game);
-
-            Player player = new Player();
-
-            dealer.Shuffle();
-
-            dealer.Deal(player.Hand);
-
-            player.ShowHand();
-
+            Game game = new Game("Game", "fun game", new string[] {"Apples","Oranges" }, 1, 100000, 3);
+            game.Start();
         }
         
     }

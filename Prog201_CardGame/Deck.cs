@@ -10,7 +10,10 @@ namespace Prog201_CardGame
 {
     internal class Deck
     {
-        public string[] Suites = { "Clubs", "Diamonds", "Hearts", "Spades" };
+        public string[] Suites;
+
+        public Deck(string[] _Suites) { Suites = _Suites; }
+
         public void AddCard( List<Card> _Deck ,string _Suite, int _Number, string _Face, string _Image)
         {
             Card Card = new Card
@@ -68,19 +71,6 @@ namespace Prog201_CardGame
                 Decks.Add(_deck);
             }
             return Decks;
-        }
-
-        public void DrawCard(List<List<Card>> _Decks, List<Card> Hand)
-        {
-            foreach(List<Card> _deck in _Decks) 
-            { 
-                if(_deck.Count > 0) 
-                { 
-                    Card _card = _deck.First();
-                    Hand.Add(_card);
-                    _deck.Remove(_card);
-                }
-            }
         }
     }
 }

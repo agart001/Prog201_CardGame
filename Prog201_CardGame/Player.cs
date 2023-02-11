@@ -15,6 +15,11 @@ namespace Prog201_CardGame
 
         public double Money { get; set; }
 
+        public Player() 
+        { 
+
+        }
+
         public void ShowHand()
         {
             Print("Player Hand: ");
