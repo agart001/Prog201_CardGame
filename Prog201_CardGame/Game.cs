@@ -7,7 +7,7 @@ using static Prog201_CardGame.Utility;
 
 namespace Prog201_CardGame
 {
-    internal class Game
+    internal abstract class Game
     {
         public Deck Deck;
         List<List<Card>> Decks;
@@ -17,13 +17,11 @@ namespace Prog201_CardGame
 
         public string Name { get; set; }
         public string Desc { get; set; }
-
         public string[] Suites { get; set; }
 
         public int NumDecks { get; set; }
         public double HouseMoney { get; set; }
         public int HandSize { get; set; }
-
 
         public Game(string _Name, string _Desc, string[] _Suites, int _NumDecks, double _HouseMoney, int _HandSize)
         {
@@ -43,17 +41,27 @@ namespace Prog201_CardGame
 
         public void Start()
         {
-            Print("Pre-shuffle");
             SpaceLine();
+            Print("Welcome to");
+            Print(Name+"!");
 
-            Dealer.PrintDeck();
-
-            Dealer.Shuffle();
-
-            Print("Post-shuffle");
             SpaceLine();
-
-            Dealer.PrintDeck();
+            Print(Desc);
+            SpaceLine();
+            if(Question("What to play? (y/n)", "y", "n"))
+            {
+                DisplayClear();
+                Loop();
+            }
+            else
+            {
+                Stop();
+            }
+        }
+        public abstract void Loop();
+        public void Stop()
+        {
+           CloseApp();
         }
     }
 }
