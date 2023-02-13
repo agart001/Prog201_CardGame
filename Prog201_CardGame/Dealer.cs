@@ -36,6 +36,18 @@ namespace Prog201_CardGame
             }
         }
 
+        public void ShowHand()
+        {
+            Print("Dealer Hand: ");
+            SpaceLine();
+            foreach (Card card in Hand)
+            {
+                Print(card.Image);
+            }
+            SpaceLine();
+        }
+
+
         public void Shuffle()
         {
             foreach (List<Card> _Deck in Decks)
@@ -65,6 +77,11 @@ namespace Prog201_CardGame
             {
                 return null;
             }
+        }
+
+        public void DiscardCard(int x, int y)
+        {
+            Hand.RemoveRange(x, y);
         }
 
         public void Deal(List<Card> _Hand, int _Amount)

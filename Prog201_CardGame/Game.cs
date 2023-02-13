@@ -51,6 +51,9 @@ namespace Prog201_CardGame
             if(Question("What to play? (y/n)", "y", "n"))
             {
                 DisplayClear();
+
+                Dealer.Shuffle();
+
                 Loop();
             }
             else
