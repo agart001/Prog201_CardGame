@@ -38,11 +38,13 @@ namespace Prog201_CardGame
 
         public void ShowHand()
         {
+            int i = 0;
             Print("Dealer Hand: ");
             SpaceLine();
             foreach (Card card in Hand)
             {
-                Print(card.Image);
+                i++;
+                Print(i + ": " + card.Image);
             }
             SpaceLine();
         }

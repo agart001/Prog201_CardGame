@@ -7,10 +7,12 @@ using static Prog201_CardGame.Utility;
 
 namespace Prog201_CardGame
 {
-    internal class AnO : Game
+    internal class HoL : Game
     {
-        public AnO
-        (string _Name, string _Desc, string[] _Suites, int _NumDecks, double _HouseMoney, int _HandSize) : 
+        Card previousCard;
+        Card nextCard;
+
+        public HoL(string _Name, string _Desc, string[] _Suites, int _NumDecks, double _HouseMoney, int _HandSize) :
         base(_Name, _Desc, _Suites, _NumDecks, _HouseMoney, _HandSize)
         {
         }
@@ -19,10 +21,18 @@ namespace Prog201_CardGame
         {
             Dealer.Deal(Dealer.Hand, HandSize);
             SpaceLine();
-            if(Question("Will the card be apples or oranges? 1) apples or 2) oranges", "1", "2"))
+
+            previousCard = Dealer.Hand[0];
+            nextCard = Dealer.Hand[1];
+
+            Print("The first card is: ");
+            Print(previousCard.Image);
+            SpaceLine();
+
+            if (QuestionInt("Will the next card be higher or lower? 1) higher or 2) lower", 1, 2))
             {
                 SpaceLine();
-                if (ConvertToLower(Dealer.Hand[0].Suite) == "1")
+                if (nextCard.Number > previousCard.Number)
                 {
                     Print("Great Guess! You win!");
                     Player.Money += 10;
@@ -36,7 +46,7 @@ namespace Prog201_CardGame
             else
             {
                 SpaceLine();
-                if (ConvertToLower(Dealer.Hand[0].Suite) == "1")
+                if (nextCard.Number < previousCard.Number)
                 {
                     Print("Great Guess! You win!");
                     Player.Money += 10;
@@ -48,12 +58,16 @@ namespace Prog201_CardGame
                 }
             }
 
-            Dealer.ShowHand();
+            SpaceLine();
+            Print("The next card is: ");
+            Print(nextCard.Image);
+
             Dealer.Hand.Clear();
             SpaceLine();
 
-            if(Question("Wanna play again? (y/n)", "y", "n"))
+            if (Question("Wanna play again? (y/n)", "y", "n"))
             {
+                DisplayClear();
                 Loop();
             }
             else

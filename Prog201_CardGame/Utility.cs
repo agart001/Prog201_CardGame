@@ -99,6 +99,28 @@ namespace Prog201_CardGame
             }
 
         }
+
+        public static bool QuestionInt(string question, int confirm, int cancel)
+        {
+            Print(question);
+
+            int answer = InputInt();
+
+            if (answer == confirm)
+            {
+                return true;
+            }
+            else if (answer == cancel)
+            {
+                return false;
+            }
+            else
+            {
+                Print("-ERROR-");
+                return QuestionInt(question, confirm, cancel);
+            }
+
+        }
         #endregion
 
         #region File Methods
