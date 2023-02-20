@@ -19,10 +19,10 @@ namespace Prog201_CardGame
         {
             Dealer.Deal(Dealer.Hand, HandSize);
             SpaceLine();
-            if(Question("Will the card be apples or oranges? 1) apples or 2) oranges", "1", "2"))
+            if(QuestionInt("Will the card be apples or oranges? 1) apples or 2) oranges", 1, 2))
             {
                 SpaceLine();
-                if (ConvertToLower(Dealer.Hand[0].Suite) == "1")
+                if (ConvertToLower(Dealer.Hand[0].Suite) == "apples")
                 {
                     Print("Great Guess! You win!");
                     Player.Money += 10;
@@ -36,7 +36,7 @@ namespace Prog201_CardGame
             else
             {
                 SpaceLine();
-                if (ConvertToLower(Dealer.Hand[0].Suite) == "1")
+                if (ConvertToLower(Dealer.Hand[0].Suite) == "oranges")
                 {
                     Print("Great Guess! You win!");
                     Player.Money += 10;
