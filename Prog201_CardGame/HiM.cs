@@ -115,11 +115,23 @@ namespace Prog201_CardGame
 
         void DetermineWin()
         {
-            if(PlayerTotal > DealerTotal)
+            string PlayerSuite = FavoredSuite(Player.Hand);
+            string DealerSuite = FavoredSuite(Dealer.Hand);
+
+            SpaceLine();
+            Print($"Player Favors {PlayerSuite} and totals at {PlayerTotal} points");
+            SpaceLine();
+            Player.ShowHand();
+
+            SpaceLine();
+            Print($"Dealer Favors {DealerSuite} and totals at {DealerTotal} points");
+            SpaceLine();
+            Dealer.ShowHand();
+
+            if (PlayerTotal > DealerTotal)
             {
                 SpaceLine();
-                string Suite = FavoredSuite(Player.Hand);
-                Print($"Player Wins! Favoring {Suite} and totaling at {PlayerTotal} points");
+                Print("Player Wins!");
                 SpaceLine();
             }    
             else if (PlayerTotal == DealerTotal)
@@ -131,8 +143,7 @@ namespace Prog201_CardGame
             else
             {
                 SpaceLine();
-                string Suite = FavoredSuite(Dealer.Hand);
-                Print($"Dealer Wins! Favoring {Suite} and totaling at {DealerTotal} points");
+                Print("Dealer Wins!");
                 SpaceLine();
             }
 
