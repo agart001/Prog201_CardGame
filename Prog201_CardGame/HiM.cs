@@ -35,7 +35,7 @@ namespace Prog201_CardGame
         string FavoredSuite(List<Card> _Hand)
         {
             int i = 0;
-            int[] Weights = new int[4];
+            int[] Weights = new int[Suites.Length];
             foreach(string Suite in Suites) 
             {
                 foreach(Card _Card in _Hand) 
