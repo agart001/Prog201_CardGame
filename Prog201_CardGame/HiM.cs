@@ -9,7 +9,7 @@ namespace Prog201_CardGame
 {
     internal class HiM : Game
     {
-        int MaxPointValue = 40;
+    
 
         int PlayerTotal = 0;
         int DealerTotal = 0;
@@ -28,8 +28,6 @@ namespace Prog201_CardGame
             SpaceLine();
             Print("The dealer has dealt you and themselves a hand");
             SpaceLine();
-
-            Player.ShowHand();
 
             GameLoop();
         }
@@ -64,7 +62,7 @@ namespace Prog201_CardGame
             {
                 if(_Card.Suite == Suite)
                 {
-                    Total += 10;
+                    Total += _Card.Number;
                 }
             }
 
@@ -83,6 +81,8 @@ namespace Prog201_CardGame
 
         void PlayerDraw()
         {
+            Player.ShowHand();
+
             if (Question("Would you like to remove a card? (y/n)", "y", "n"))
             {
                 Print("Would you like to remove a card and draw another? (index number)");
@@ -90,13 +90,15 @@ namespace Prog201_CardGame
                 Player.Hand.Remove(Player.Hand[index - 1]);
                 Dealer.Deal(Player.Hand, 1);
 
+                DisplayClear();
+
                 Player.ShowHand();
             }
         }
 
         void DealerDraw()
         {
-            if(DealerTotal < MaxPointValue)
+            if(DealerTotal <= PlayerTotal)
             {
                 string Suite = FavoredSuite(Dealer.Hand);
                 foreach (Card _Card in Dealer.Hand)
@@ -111,14 +113,50 @@ namespace Prog201_CardGame
             }
         }
 
+        void DetermineWin()
+        {
+            if(PlayerTotal > DealerTotal)
+            {
+                SpaceLine();
+                string Suite = FavoredSuite(Player.Hand);
+                Print($"Player Wins! Favoring {Suite} and totaling at {PlayerTotal} points");
+                SpaceLine();
+            }    
+            else if (PlayerTotal == DealerTotal)
+            {
+                SpaceLine();
+                Print("Draw!");
+                SpaceLine();
+            }
+            else
+            {
+                SpaceLine();
+                string Suite = FavoredSuite(Dealer.Hand);
+                Print($"Dealer Wins! Favoring {Suite} and totaling at {DealerTotal} points");
+                SpaceLine();
+            }
 
+            Stop();
+        }
+
+        void PlayerCallWin()
+        {
+            if(Question("Would you like to call a win? (y/n)", "y", "n"))
+            {
+                DetermineWin();
+            }
+            else
+            {
+                GameLoop();
+            }
+        }
 
 
         void GameLoop()
         {
-            if (Round == 10)
+            if (Round > 10)
             {
-
+                DetermineWin();
             }
             else
             {
@@ -130,7 +168,7 @@ namespace Prog201_CardGame
 
                 DealerDraw();
 
-                GameLoop();
+                PlayerCallWin();
             }
         }
     }
