@@ -90,8 +90,6 @@ namespace Prog201_CardGame
                 Player.Hand.Remove(Player.Hand[index - 1]);
                 Dealer.Deal(Player.Hand, 1);
 
-                DisplayClear();
-
                 Player.ShowHand();
             }
         }
