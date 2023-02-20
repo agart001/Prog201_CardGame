@@ -73,14 +73,12 @@ namespace Prog201_CardGame
         {
             PlayerTotal = GetTotal(Player.Hand);
             DealerTotal = GetTotal(Dealer.Hand);
-
-            Print("Total: " + PlayerTotal);
-            SpaceLine();
-            Print("D Total: " + DealerTotal);
         }
 
         void PlayerDraw()
         {
+            SpaceLine();
+            Print("Total: " + PlayerTotal);
             Player.ShowHand();
 
             if (Question("Would you like to remove a card? (y/n)", "y", "n"))
@@ -92,6 +90,8 @@ namespace Prog201_CardGame
 
                 DisplayClear();
 
+                SpaceLine();
+                Print("Total: " + PlayerTotal);
                 Player.ShowHand();
             }
         }
@@ -117,6 +117,8 @@ namespace Prog201_CardGame
         {
             string PlayerSuite = FavoredSuite(Player.Hand);
             string DealerSuite = FavoredSuite(Dealer.Hand);
+
+            DisplayClear();
 
             SpaceLine();
             Print($"Player Favors {PlayerSuite} and totals at {PlayerTotal} points");
