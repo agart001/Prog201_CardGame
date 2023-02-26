@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Prog201_CardGame.Utility;
 
-namespace Prog201_CardGame
+namespace Prog201_CardGame.Frames
 {
     internal class Deck
     {

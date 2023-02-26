@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Prog201_CardGame.Utility;
+using Prog201_CardGame.Frames;
 
-namespace Prog201_CardGame
+namespace Prog201_CardGame.Actors
 {
     internal class Player
     {
@@ -15,8 +16,8 @@ namespace Prog201_CardGame
 
         public double Money { get; set; }
 
-        public Player() 
-        { 
+        public Player()
+        {
 
         }
 

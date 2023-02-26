@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Prog201_CardGame.Utility;
+using Prog201_CardGame.Frames;
 
-namespace Prog201_CardGame
+namespace Prog201_CardGame.Actors
 {
     internal class Dealer
     {
@@ -17,7 +18,7 @@ namespace Prog201_CardGame
 
         public double Money { get; set; }
 
-        public Dealer(List<List<Card>> _Decks, int _HandSize, double _Money) 
+        public Dealer(List<List<Card>> _Decks, int _HandSize, double _Money)
         {
             Decks = _Decks;
             HandSize = _HandSize;
@@ -88,7 +89,7 @@ namespace Prog201_CardGame
 
         public void Deal(List<Card> _Hand, int _Amount)
         {
-            for(int i = 0; i < _Amount; i++)
+            for (int i = 0; i < _Amount; i++)
             {
                 Card _Card = DrawCard();
                 if (_Card != null) { _Hand.Add(_Card); }

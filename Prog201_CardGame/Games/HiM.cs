@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prog201_CardGame.Frames;
 using static Prog201_CardGame.Utility;
 
 namespace Prog201_CardGame
 {
-    internal class HiM : Game
+    internal class HiM : Frames.Game
     {
     
 

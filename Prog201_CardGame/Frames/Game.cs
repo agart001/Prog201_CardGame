@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prog201_CardGame.Actors;
 using static Prog201_CardGame.Utility;
 
-namespace Prog201_CardGame
+namespace Prog201_CardGame.Frames
 {
     internal abstract class Game
     {
@@ -65,6 +66,18 @@ namespace Prog201_CardGame
         public void Stop()
         {
            CloseApp();
+        }
+
+        public void ContinuePlay()
+        {
+            if (Question("Wanna play again? (y/n)", "y", "n"))
+            {
+                Loop();
+            }
+            else
+            {
+                Stop();
+            }
         }
     }
 }

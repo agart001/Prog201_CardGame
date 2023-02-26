@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prog201_CardGame.Frames;
 using static Prog201_CardGame.Utility;
 
 namespace Prog201_CardGame
@@ -52,17 +53,39 @@ namespace Prog201_CardGame
                 SpaceLine();
                 index++;
             }
+            Print("4: Exit");
             SpaceLine();
+        }
+
+        void GetGameChoice()
+        {
+            Print("What Game would you like to play? (enter an index)");
+            SpaceLine();
+            int index = InputInt();
+
+            if(index>4)
+            {
+                SpaceLine();
+                GetGameChoice();
+            }
+            else
+            {
+                if (index == 4)
+                {
+                    CloseApp();
+                }
+                else
+                {
+                    ChoosenGame = Games[index - 1];
+                }
+            }
         }
 
         public void Menu()
         {
             PrintGames();
 
-            Print("What Game would you like to play? (enter an index)");
-            int index = InputInt();
-
-            ChoosenGame = Games[index - 1];
+            GetGameChoice();
 
             DisplayClear();
 
