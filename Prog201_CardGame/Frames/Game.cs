@@ -49,7 +49,7 @@ namespace Prog201_CardGame.Frames
             SpaceLine();
             Print(Desc);
             SpaceLine();
-            if(Question("What to play? (y/n)", "y", "n"))
+            if(Question("Want to play? (y/n)", "y", "n"))
             {
                 DisplayClear();
 
@@ -76,6 +76,7 @@ namespace Prog201_CardGame.Frames
         {
             if (Question("Wanna play again? (y/n)", "y", "n"))
             {
+                DisplayClear();
                 Loop();
             }
             else

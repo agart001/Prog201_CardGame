@@ -24,7 +24,7 @@ namespace Prog201_CardGame
             new HoL
                 (
                     "Higher or Lower",
-                    "A guessing game of Numbers, guess if the next card's number is higher or lower",
+                    "A guessing game of Numbers, guess if the next card's number is higher or lower than the first",
                     new string[] {"Clubs", "Diamonds", "Hearts", "Spades"},
                     1,
                     10000,
@@ -33,7 +33,7 @@ namespace Prog201_CardGame
            new HiM
                 (
                     "Highest Match",
-                    "A numbers game, where like suites add to a player's total",
+                    "A numbers game, where like suites in a hand add to a player's total and the highest total wins",
                     new string[] {"CLubs", "Diamonds", "Hearts", "Spades"},
                     1,
                     100000,

@@ -50,7 +50,10 @@ namespace Prog201_CardGame.Actors
             SpaceLine();
         }
 
-
+        //Fisher-Yates Shuffle 
+        //Urls
+        // - Original Source: https://stackoverflow.com/questions/273313/randomize-a-listt
+        // - Wiki Page: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
         public void Shuffle()
         {
             foreach (List<Card> _Deck in Decks)
@@ -66,6 +69,7 @@ namespace Prog201_CardGame.Actors
                 }
             }
         }
+        //
 
         public Card DrawCard()
         {

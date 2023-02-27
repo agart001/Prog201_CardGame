@@ -79,7 +79,9 @@ namespace Prog201_CardGame
         void PlayerDraw()
         {
             SpaceLine();
-            Print("Total: " + PlayerTotal);
+            string Suite = FavoredSuite(Player.Hand);
+            Print($"Total: {PlayerTotal} {Suite}");
+            SpaceLine();
             Player.ShowHand();
 
             if (Question("Would you like to remove a card? (y/n)", "y", "n"))
@@ -161,6 +163,7 @@ namespace Prog201_CardGame
             }
             else
             {
+                DisplayClear();
                 GameLoop();
             }
         }

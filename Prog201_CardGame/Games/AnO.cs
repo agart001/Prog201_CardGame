@@ -35,11 +35,14 @@ namespace Prog201_CardGame
             GetChoice();
 
             SpaceLine();
-            Dealer.ShowHand();
-            Dealer.Hand.Clear();
+            Print("The next card is: ");
+            Print(Dealer.Hand[0].Image);
             SpaceLine();
 
+            Dealer.Hand.Clear();
+
             ContinuePlay();
+
         }
 
         void ApplesChoice()
