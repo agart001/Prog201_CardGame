@@ -63,7 +63,7 @@ namespace Prog201_CardGame
             SpaceLine();
             int index = InputInt();
 
-            if(index>4)
+            if(index>4||index<1)
             {
                 SpaceLine();
                 GetGameChoice();
