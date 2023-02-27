@@ -62,7 +62,11 @@ namespace Prog201_CardGame.Frames
                 Stop();
             }
         }
+
+
         public abstract void Loop();
+
+
         public void Stop()
         {
            CloseApp();

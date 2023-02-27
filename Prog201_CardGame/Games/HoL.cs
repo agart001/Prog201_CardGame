@@ -30,34 +30,7 @@ namespace Prog201_CardGame
             Print(previousCard.Image);
             SpaceLine();
 
-            if (QuestionInt("Will the next card be higher or lower? 1) higher or 2) lower", 1, 2))
-            {
-                SpaceLine();
-                if (nextCard.Number > previousCard.Number)
-                {
-                    Print("Great Guess! You win!");
-                    Player.Money += 10;
-                }
-                else
-                {
-                    Print("Bad Guess! You lose!");
-                    Player.Money -= 10;
-                }
-            }
-            else
-            {
-                SpaceLine();
-                if (nextCard.Number < previousCard.Number)
-                {
-                    Print("Great Guess! You win!");
-                    Player.Money += 10;
-                }
-                else
-                {
-                    Print("Bad Guess! You lose!");
-                    Player.Money -= 10;
-                }
-            }
+            GetChoice();
 
             SpaceLine();
             Print("The next card is: ");
@@ -66,14 +39,48 @@ namespace Prog201_CardGame
             Dealer.Hand.Clear();
             SpaceLine();
 
-            if (Question("Wanna play again? (y/n)", "y", "n"))
+            ContinuePlay();
+        }
+
+        void HigherChoice()
+        {
+            if (nextCard.Number > previousCard.Number)
             {
-                DisplayClear();
-                Loop();
+                Print("Great Guess! You win!");
+                Player.Money += 10;
             }
             else
             {
-                Stop();
+                Print("Bad Guess! You lose!");
+                Player.Money -= 10;
+            }
+        }
+
+        void LowerChoice()
+        {
+            if (nextCard.Number < previousCard.Number)
+            {
+                Print("Great Guess! You win!");
+                Player.Money += 10;
+            }
+            else
+            {
+                Print("Bad Guess! You lose!");
+                Player.Money -= 10;
+            }
+        }
+
+        void GetChoice()
+        {
+            if (QuestionInt("Will the next card be higher or lower? 1) higher or 2) lower", 1, 2))
+            {
+                SpaceLine();
+                HigherChoice();
+            }
+            else
+            {
+                SpaceLine();
+                LowerChoice();
             }
         }
     }

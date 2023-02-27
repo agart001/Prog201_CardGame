@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Prog201_CardGame.Program">
+    <Position X="0.5" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.Engine">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAIBAAAAAAIA=</HashCode>
+      <FileName>Engine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.Utility">
+    <Position X="4.25" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAAAAAAAAAAAAACAAAAAAAAAQAAEAAgEABAEAgA=</HashCode>
+      <FileName>Utility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.Actors.Dealer">
+    <Position X="3.25" Y="5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAAAACAAAAAAAAAABAQAEAAAAAAAAAAIAAAAGAA=</HashCode>
+      <FileName>Actors\Dealer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.Actors.Player">
+    <Position X="0.5" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actors\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.Frames.Card">
+    <Position X="9" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAABAAAAAAAABAAAAAgAAAAAAA=</HashCode>
+      <FileName>Frames\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.Frames.Deck">
+    <Position X="12.25" Y="0.5" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAgAAAAAAA=</HashCode>
+      <FileName>Frames\Deck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.Frames.Game">
+    <Position X="20.5" Y="0.5" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAAAIACAAAAAAAAAIAEQAAAAAAAAAIABgQQAACAA=</HashCode>
+      <FileName>Frames\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.HiM">
+    <Position X="27.5" Y="6.25" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgBACIAAAAAAAgAQBAAAAAABAAAAAAAAACAAIAQAA=</HashCode>
+      <FileName>Games\HiM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.AnO">
+    <Position X="12.5" Y="6.25" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAIAAAAAAAAAAAAAAAAgAACAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Games\AnO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prog201_CardGame.HoL">
+    <Position X="20.5" Y="6.25" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAIAAAAAAACAAAAAAAAAQAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Games\HoL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

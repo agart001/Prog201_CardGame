@@ -14,7 +14,7 @@ namespace Prog201_CardGame.Frames
 
         public Deck(string[] _Suites) { Suites = _Suites; }
 
-        public void AddCard( List<Card> _Deck ,string _Suite, int _Number, string _Face, string _Image)
+        void AddCard( List<Card> _Deck ,string _Suite, int _Number, string _Face, string _Image)
         {
             Card Card = new Card
             {
@@ -26,7 +26,7 @@ namespace Prog201_CardGame.Frames
             _Deck.Add(Card);
         }
 
-        public List<Card> CreateDeck() 
+        List<Card> CreateDeck() 
         {
             List<Card> Deck = new List<Card>();
 
